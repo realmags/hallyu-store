@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hallyu-store",
+  "private_key_id": "24df5c7f91dc9ae05492ece98a63b9f33bddf915",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDR8f1Rn1OaNxjJ\nvjsId5A8CmWFVy8A/FPL5+sgcUkoedZ8+bDbnvP8NmInlTytl7y49Fy2nCpddETU\nJUOSgghkPsuo27fT8NDaeaW39u0xQCeKFlcatdiZJ+56YoqRFw5Hq3jcu6RtBQKO\n9oJ10d1nkJ3gFQPFwgLJ/U4Vb7IaeW/+7vP2d9fFZ3HTlSSPMeHB65XwiSMm3ZbN\nWuq2LwgsRVRPTwHFDW8Bh4vwaMULqx0rezmisSoORTtiOUbmkV0M49ziqqbrxEME\n7g+Y00MdRDxaXkvcRbx0+Gp1rW04vtLQn3aQSAWv+XY7gIx1ORQMByV1npSnbnr+\nA7PdrOGbAgMBAAECggEAIQwCX/LAain6EOeMy0xmu8y3JkIO+Ay/8/zRmg27AlAL\nXyi+mhNvPGgjEy/+mSSlZEeywFvcn1FJ9ErZVBp7z6vCyxWq3gWuGnXDjC2mMHZ0\nwtu5Yk71hUYv17vjK+uBJ+7p23T98Ns1B+PtrTYXr9GnyDoGmf5sCfeBbwZh9qCV\nr1YwWGaSJNKjKGY5hhQo1lhRAkfxmqejIoSGb2OTgfvE2U/Dpjn2bIxzs3ydOPrX\n7FwJ/HyHJZJwtgHmDPvOSWXISttFG59OXbTTDB+m0I5gj7lQPFRPcE7F2VdO/RmJ\nbHmg+OcdqurUEJZ3ibDIcrkGKCWxAMb+FM/FpySnQQKBgQD7/MWxetN0SiH1r2kD\nVv3gcbFRmxF8ai6+fhe/8FqZRIJPAL/lxFh1blj1AqzjEZT80UwQEnSlXYAjJiwS\nrjpnXTb2u3mRkyRJdbWIvVW3B7OWYUEkr8BbYPE6Ph2V9OhSFBzNwlUGx/M646Cc\nbiC0woSFTi4THXNBMnOQBxUwcwKBgQDVSdUXouDG2+85whDiR3KqyvzWyDEtX3Gn\nhJM/uC5LOykxDh83QDIHznhWAxFUr4m+5UDF49pbJXbRjEpyrzYFvK1aeUsXW+Pr\nvJqt8Y8kpZEEhNR+SUs3eLm1n8J0+/VPpn9ZCIMpVy/ZL7Wl+TC855miAtCp4LzR\nRpqAYOiIOQKBgGpCaUsyNEDxkeh8k5fo8x3WU6PJ9FG2pQeHPJSf0lSXYyvVcRZ+\n+Z5rbe/DtQv7ugvyZlTQs4eYKhSoYCVwewhjcm4RGG6e0cp4bJjA3ohUIxLi6AmE\nY2UlOBQLZYZ6xAz4ljzeGeTGJHdMzcmpVvlinWdpVFyTKqrvj3PIyNKpAoGAXWJE\nMGMZ8zdcWHeFmO0bYXgal5dzIKCHTIcZSW7Eph+y+01pkXFD9nMJ8O7K6b8pmjEZ\n2QrYEcwnZ7v65JeeGYjwhYpRvFp5Qj+DoeD/gVYUVlwqBVjl29W5ybG3HC0szMDj\nRQIbG0CXLIpdB9xA4JSuiWaeIaLKSP6WqtrDNNECgYEAu28AnMpqUxCZETEAx2V0\noyMlkQyhht7l88p7PHIPXkO2Udx0l3lYNryIcx+tYjrl+Q9iVCE7ZPupjrS8IiFg\nBSGHvZX/f2TH/cFvbYaQdL/xSebMFlsr2oA+AsHDHiFnMnLy5GD7xLeUTtv6V+U1\ngo+hDAv2MGQJoKrWV291cPQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "hallyu-store-service-account@hallyu-store.iam.gserviceaccount.com",
+  "client_id": "117502692668452384958",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hallyu-store-service-account%40hallyu-store.iam.gserviceaccount.com"
+}
