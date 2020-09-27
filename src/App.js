@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+// components
+import Header from "./components/Header";
+import ProductCard from "./components/ProductCard";
+import products from "./data/products";
+import ShoppingBagProvider from "./components/ShoppingBagContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ShoppingBagProvider>
+        <div className="content">
+          <Header />
+          <p className="content__description">
+            Welcome to your one-stop shop for Korean food!
+          </p>
+          <div className="product_slider">
+            {products.map((product, key) => (
+              <ProductCard product={product} key={`product-${key}`} />
+            ))}
+          </div>
+        </div>
+      </ShoppingBagProvider>
     </div>
   );
 }
