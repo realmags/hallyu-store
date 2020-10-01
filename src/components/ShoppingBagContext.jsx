@@ -15,29 +15,25 @@ function ShoppingBagProvider(props) {
 
   const updateItems = (itemToFilter, removeItem = false) => {
     const indexOfItem = shoppingBagItems.findIndex(
-      (item) => item.id === itemToFilter.id
+      (item) => item.ItemId === itemToFilter.ItemId
     );
 
     removeItem
       ? shoppingBagItems.splice(indexOfItem, 1)
       : shoppingBagItems.splice(indexOfItem, 1, itemToFilter);
-    // if (removeItem) {
-    //   shoppingBagItems.splice(indexOfItem, 1);
-    //   return shoppingBagItems;
-    // }
-
-    // shoppingBagItems.splice(indexOfItem, 1, itemToFilter);
     return shoppingBagItems;
   };
 
   const addToBag = (itemToAdd) => {
     //   check if item is already on the bog
     const isItemAdded = shoppingBagItems.some(
-      (item) => item.id === itemToAdd.id
+      (item) => item.ItemId === itemToAdd.ItemId
     );
 
     if (isItemAdded) {
-      alert("Item has already been added to cart.");
+      alert(
+        "Item has been added to cart.\nOpen your shopping bag to view and edit items."
+      );
       return;
     }
 
@@ -49,8 +45,9 @@ function ShoppingBagProvider(props) {
   };
 
   const incrementItem = (itemToIncrement) => {
-    itemToIncrement.count += 1;
-    itemToIncrement.subtotal = itemToIncrement.price * itemToIncrement.count;
+    itemToIncrement.itemCount += 1;
+    itemToIncrement.itemSubtotal =
+      itemToIncrement.itemPrice * itemToIncrement.itemCount;
 
     const newShoppingBagItems = updateItems(itemToIncrement);
     // updateShoppingBagItems(() => [...newShoppingBagItems]);
@@ -59,10 +56,11 @@ function ShoppingBagProvider(props) {
   };
 
   const decrementItem = (itemToDecrement) => {
-    if (itemToDecrement.count === 1) return;
+    if (itemToDecrement.itemCount === 1) return;
 
-    itemToDecrement.count -= 1;
-    itemToDecrement.subtotal = itemToDecrement.price * itemToDecrement.count;
+    itemToDecrement.itemCount -= 1;
+    itemToDecrement.itemSubtotal =
+      itemToDecrement.itemPrice * itemToDecrement.itemCount;
     const newShoppingBagItems = updateItems(itemToDecrement);
 
     // updateShoppingBagItems(() => [...newShoppingBagItems]);

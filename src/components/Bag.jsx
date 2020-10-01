@@ -26,8 +26,8 @@ function Bag({ activeMenu, setActiveMenu }) {
     return (
       <div className="item">
         <div className="item__details">
-          <h1>{item.name || "Delicious food"}</h1>
-          <p>{item.subtitle || "Choose from our catalogue"}</p>
+          <h1>{item.itemName || "Delicious food"}</h1>
+          <p>{item.itemSubtitle || "Choose from our catalogue"}</p>
         </div>
         <div className="item__buttons">
           <span className="item__count">
@@ -39,7 +39,7 @@ function Bag({ activeMenu, setActiveMenu }) {
             >
               +
             </button>
-            <p>{item.count || "0"}</p>
+            <p>{item.itemCount || "0"}</p>
             <button
               type="button"
               onClick={() =>
@@ -62,7 +62,7 @@ function Bag({ activeMenu, setActiveMenu }) {
           </span>
         </div>
         <div className="item__subtotal">
-          <p>P{item.subtotal || "0"}</p>
+          <p>P{item.itemSubtotal || "0"}</p>
         </div>
       </div>
     );
@@ -76,7 +76,7 @@ function Bag({ activeMenu, setActiveMenu }) {
           Amount to pay: P
           {shoppingBag.items.length > 0
             ? shoppingBag.items
-                .map((item) => item.subtotal)
+                .map((item) => item.itemSubtotal)
                 .reduce((sum, current) => sum + current)
             : 0}
         </h1>
