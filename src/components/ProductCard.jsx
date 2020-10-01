@@ -4,9 +4,21 @@ import { useShoppingBagContext } from "./ShoppingBagContext";
 function ProductCard({ product }) {
   const shoppingBag = useShoppingBagContext();
   const [count, setCount] = useState(1);
+  const [options, setOptions] = useState({
+    flavor: "strawberry",
+    addons: [],
+  });
 
   const addItemToOrderList = (product) => {
-    const itemToAdd = { ...product, count: count, subtotal: product.price };
+    // const itemToAdd = { ...product, count: count, subtotal: product.price };
+    const itemToAdd = {
+      itemId: `${product.id}with${options.flavor}`,
+      itemName: product.name,
+      itemCount: count,
+      itemSubtotal: product.price * count,
+      itemSubtitle: `with ${options.flavor} binggrae`,
+      itemPrice: product.price,
+    };
     // console.log(itemToAdd);
     shoppingBag.add(itemToAdd);
     // console.log("item added to storage");
@@ -39,14 +51,17 @@ function ProductCard({ product }) {
           <p>What's in it</p>
           <p>{product.description}</p>
         </div>
+        <div className="product__options">
+          <p className="option__title">Binggrae flavor</p>
+          <section>
+            <select name="binggrae-flavor" id="binggrae">
+              <option value="strawberry">Strawberry</option>
+              <option value="melon">Melon</option>
+              <option value="banana">Banana</option>
+            </select>
+          </section>
+        </div>
         <div className="product__button">
-          {/* <button
-            type="button"
-            className="product__add"
-            onClick={() => addItemToOrderList(product)}
-          >
-            Add to Bag
-          </button> */}
           <span className="count__button">
             <button type="button" onClick={incrementCount}>
               +
