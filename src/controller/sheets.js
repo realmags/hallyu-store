@@ -22,7 +22,9 @@ const appendRow = async (orderDetails) => {
         });
 
         console.log('this is result', result);
+        return result;
     } catch (e) {
+        alert('Oh noes! Something went wrong.');
         console.error('Error: ', e);
     }
 };

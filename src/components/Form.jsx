@@ -7,13 +7,10 @@ import { appendRow } from "../controller/sheets";
 
 function Form({ activeMenu, setActiveMenu }) {
   const formRef = useRef(null);
-  const orderItems = useShoppingBagContext().items;
+  const orderItems = useShoppingBagContext().items.orders;
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
-    // const pendingOrder = orderItems.map(
-    //   (item) => `${item.count}pcs ${item.id}`
-    // );
     const orderSummary = orderItems.reduce(
       (summary, currentItem) => {
         summary.pendingOrders = [
@@ -46,7 +43,12 @@ function Form({ activeMenu, setActiveMenu }) {
     e.persist();
     // TODO make input fields required
     console.log("adding form data", formData);
-    appendRow(formData);
+    appendRow(formData).then((result) => {
+      if (result)
+        alert(
+          "Thank you for choosing Hallyu store.\nWe will notify you thru SMS regarding the status of your order."
+        );
+    });
   };
 
   return (
@@ -92,14 +94,6 @@ function Form({ activeMenu, setActiveMenu }) {
             <option value="meet-up">meet up</option>
             <option value="meet-up">delivery</option>
           </select>
-          {/* <textarea
-            name="instructions"
-            id="instructions"
-            cols="30"
-            rows="5"
-            placeholder="delivery instructions (optional)"
-            onInput={handleChange}
-          ></textarea> */}
           <div className="form__button">
             <button className="form__submit">Confirm Order</button>
           </div>

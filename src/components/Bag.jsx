@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import Button from "./Button";
 import { useRef } from "react";
@@ -7,22 +7,17 @@ import { useShoppingBagContext } from "./ShoppingBagContext";
 function Bag({ activeMenu, setActiveMenu }) {
   const shoppingBag = useShoppingBagContext();
   const bagRef = useRef(null);
-  // how to get all items from session storage
-  // const bagItem
 
-  // alert(orderItems);
-  // useEffect(() => {
-  //   setOrderItems(shoppingBag.items);
-  //   console.log("this is useeffect");
-  // }, []);
+  function Item({ item = {}, isAddon = false }) {
+    const changeItemCount = (itemToChange, isAddonFlag, functionToCall) => {
+      if (!Object.keys(itemToChange).length > 0) return;
+      if (isAddonFlag) {
+        functionToCall(itemToChange, isAddonFlag);
+        return;
+      }
+      functionToCall(itemToChange);
+    };
 
-  // const updateOrderItems = (item) => {
-  //   shoppingBag.increment(item);
-  //   setOrderItems(shoppingBag.items);
-  //   console.log("this is update order items");
-  // };
-
-  function Item({ item = {} }) {
     return (
       <div className="item">
         <div className="item__details">
@@ -34,7 +29,7 @@ function Bag({ activeMenu, setActiveMenu }) {
             <button
               type="button"
               onClick={() =>
-                Object.keys(item).length > 0 && shoppingBag.increment(item)
+                changeItemCount(item, isAddon, shoppingBag.increment)
               }
             >
               +
@@ -43,7 +38,7 @@ function Bag({ activeMenu, setActiveMenu }) {
             <button
               type="button"
               onClick={() =>
-                Object.keys(item).length > 0 && shoppingBag.decrement(item)
+                changeItemCount(item, isAddon, shoppingBag.decrement)
               }
             >
               -
@@ -53,9 +48,12 @@ function Bag({ activeMenu, setActiveMenu }) {
             <button
               className="product__add"
               type="button"
-              onClick={() =>
-                Object.keys(item).length > 0 && shoppingBag.remove(item)
-              }
+              onClick={() => {
+                if (!Object.keys(item).length > 0) return;
+                isAddon
+                  ? shoppingBag.removeAddon(item)
+                  : shoppingBag.remove(item);
+              }}
             >
               X
             </button>
@@ -70,14 +68,39 @@ function Bag({ activeMenu, setActiveMenu }) {
 
   function Bill() {
     // const shoppingBagItems
+    const itemPromoId = "kimchi";
+    const [deliveryFee, setDeliveryFee] = useState(() => {
+      if (
+        shoppingBag.items.addons.some((addon) => addon.itemId === itemPromoId)
+      ) {
+        return 0;
+      }
+      return 25;
+    });
     return (
       <div className="bill">
+        {shoppingBag.items.orders.length > 0 ||
+        shoppingBag.items.addons.length > 0 ? (
+          <p className="delivery__fee">Delivery fee: P{deliveryFee}</p>
+        ) : null}
         <h1>
           Amount to pay: P
-          {shoppingBag.items.length > 0
-            ? shoppingBag.items
+          {shoppingBag.items.orders.length > 0
+            ? shoppingBag.items.addons.length > 0
+              ? shoppingBag.items.orders
+                  .map((item) => item.itemSubtotal)
+                  .reduce((sum, current) => sum + current) +
+                shoppingBag.items.addons
+                  .map((item) => item.itemSubtotal)
+                  .reduce((sum, current) => sum + current) +
+                deliveryFee
+              : shoppingBag.items.orders
+                  .map((item) => item.itemSubtotal)
+                  .reduce((sum, current) => sum + current) + deliveryFee
+            : shoppingBag.items.addons.length > 0
+            ? shoppingBag.items.addons
                 .map((item) => item.itemSubtotal)
-                .reduce((sum, current) => sum + current)
+                .reduce((sum, current) => sum + current) + deliveryFee
             : 0}
         </h1>
       </div>
@@ -93,13 +116,19 @@ function Bag({ activeMenu, setActiveMenu }) {
       nodeRef={bagRef}
     >
       <div className="bag" ref={bagRef}>
-        {shoppingBag.items.length === 0 ? (
+        {shoppingBag.items.orders.length === 0 &&
+        shoppingBag.items.addons.length === 0 ? (
           <Item />
         ) : (
-          shoppingBag.items.map((item) => (
+          shoppingBag.items.orders.map((item) => (
             <Item item={item} key={`bag-${item.id}`} />
           ))
         )}
+        {/* show addons */}
+        {shoppingBag.items.addons.length > 0 &&
+          shoppingBag.items.addons.map((item) => (
+            <Item item={item} key={`addon-${item.id}`} isAddon={true} />
+          ))}
         <Bill />
         <div className="bag__button">
           <Button

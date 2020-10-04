@@ -10,24 +10,32 @@ export const useShoppingBagContext = () => {
 
 function ShoppingBagProvider(props) {
   const [shoppingBagItems, updateShoppingBagItems] = useState(
-    sessionStorage.getItem("shopping-bag-items") || []
+    sessionStorage.getItem("shopping-bag-items") || {
+      orders: [],
+      addons: [],
+    }
   );
 
-  const updateItems = (itemToFilter, removeItem = false) => {
-    const indexOfItem = shoppingBagItems.findIndex(
-      (item) => item.ItemId === itemToFilter.ItemId
+  const updateItems = (
+    itemToFilter,
+    removeItem = false,
+    arrayToUpdate = shoppingBagItems.orders
+  ) => {
+    const indexOfItem = arrayToUpdate.findIndex(
+      (item) => item.itemId === itemToFilter.itemId
     );
 
+    // completely remove an item or remove then insert the updated version
     removeItem
-      ? shoppingBagItems.splice(indexOfItem, 1)
-      : shoppingBagItems.splice(indexOfItem, 1, itemToFilter);
+      ? arrayToUpdate.splice(indexOfItem, 1)
+      : arrayToUpdate.splice(indexOfItem, 1, itemToFilter);
     return shoppingBagItems;
   };
 
-  const addToBag = (itemToAdd) => {
+  const addOrderToBag = (itemToAdd) => {
     //   check if item is already on the bog
-    const isItemAdded = shoppingBagItems.some(
-      (item) => item.ItemId === itemToAdd.ItemId
+    const isItemAdded = shoppingBagItems.orders.some(
+      (item) => item.itemId === itemToAdd.itemId
     );
 
     if (isItemAdded) {
@@ -37,49 +45,78 @@ function ShoppingBagProvider(props) {
       return;
     }
 
-    updateShoppingBagItems((prev) => [...prev, itemToAdd]);
+    updateShoppingBagItems((prev) => ({
+      ...prev,
+      orders: [...prev.orders, itemToAdd],
+    }));
     // sessionStorage.setItem(
     //   "shopping-bag-items",
     //   JSON.stringify(shoppingBagItems)
     // );
   };
 
-  const incrementItem = (itemToIncrement) => {
+  const addAddonToBag = (addonToAdd = null) => {
+    updateShoppingBagItems((prev) => ({
+      ...prev,
+      addons: [...prev.addons, addonToAdd],
+    }));
+  };
+
+  const removeAddon = (addonToRemove) => {
+    const newShoppingBagItems = updateItems(
+      addonToRemove,
+      true,
+      shoppingBagItems.addons
+    );
+    updateShoppingBagItems({ ...newShoppingBagItems });
+  };
+
+  const incrementItem = (itemToIncrement, isAddon = false) => {
     itemToIncrement.itemCount += 1;
     itemToIncrement.itemSubtotal =
       itemToIncrement.itemPrice * itemToIncrement.itemCount;
 
-    const newShoppingBagItems = updateItems(itemToIncrement);
-    // updateShoppingBagItems(() => [...newShoppingBagItems]);
-    updateShoppingBagItems([...newShoppingBagItems]);
+    const newShoppingBagItems = isAddon
+      ? updateItems(itemToIncrement, false, shoppingBagItems.addons)
+      : updateItems(itemToIncrement);
+
+    updateShoppingBagItems({ ...newShoppingBagItems });
     console.log("item incremented");
   };
 
-  const decrementItem = (itemToDecrement) => {
+  const decrementItem = (itemToDecrement, isAddon = false) => {
     if (itemToDecrement.itemCount === 1) return;
 
     itemToDecrement.itemCount -= 1;
     itemToDecrement.itemSubtotal =
       itemToDecrement.itemPrice * itemToDecrement.itemCount;
-    const newShoppingBagItems = updateItems(itemToDecrement);
 
-    // updateShoppingBagItems(() => [...newShoppingBagItems]);
-    updateShoppingBagItems([...newShoppingBagItems]);
+    const newShoppingBagItems = isAddon
+      ? updateItems(itemToDecrement, false, shoppingBagItems.addons)
+      : updateItems(itemToDecrement);
+
+    updateShoppingBagItems({ ...newShoppingBagItems });
     // push to session storage
     console.log("item decremented");
   };
 
   const removeItem = (itemToRemove) => {
-    const newShoppingBagItems = updateItems(itemToRemove, true);
-    updateShoppingBagItems([...newShoppingBagItems]);
+    const newShoppingBagItems = updateItems(
+      itemToRemove,
+      true,
+      shoppingBag.orders
+    );
+    updateShoppingBagItems({ ...newShoppingBagItems });
   };
 
   const shoppingBag = {
     items: shoppingBagItems,
-    add: addToBag,
+    add: addOrderToBag,
     increment: incrementItem,
     decrement: decrementItem,
     remove: removeItem,
+    removeAddon,
+    addAddon: addAddonToBag,
   };
 
   return (

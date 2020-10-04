@@ -9,17 +9,18 @@ import { useShoppingBagContext } from "./ShoppingBagContext";
 // import { useRef } from "react";
 
 function Header() {
-  // include state in redux
-  const bagItems = useShoppingBagContext().items;
+  const shoppingBag = useShoppingBagContext();
   const [notifIsShown, setNotifIsShown] = useState(false);
   const [bagIsShown, setBagIsShown] = useState(false);
-  const [activeMenu, setActiveMenu] = useState("form");
-
-  // console.log("header bagItems", bagItems);
+  const [activeMenu, setActiveMenu] = useState("bag");
 
   useEffect(() => {
-    setNotifIsShown(bagItems.length > 0 ? true : false);
-  }, [bagItems]);
+    setNotifIsShown(
+      shoppingBag.items.orders.length > 0 || shoppingBag.items.addons.length
+        ? true
+        : false
+    );
+  }, [shoppingBag.items]);
 
   return (
     <div className="header">

@@ -21,8 +21,6 @@
   margin: 0 auto;
   border-radius: var(--radius);
   padding: 20px 30px;
-  /* overflow: hidden; */
-  /* display: flex; */
 }
 
 .content__description {
@@ -80,18 +78,9 @@
   height: 420px;
   margin: 30px 30px;
   margin-left: 0px;
-  /* margin: 30px 20px 30px 5px; */
   border-radius: 20px;
   box-shadow: 1px 1px 20px 5px var(--red-secondary);
 }
-
-/* .card:first-of-type {
-  margin-left: 10px;
-}
-
-.card:last-of-type {
-  margin-right: 10px;
-} */
 
 .card__image {
   height: 40%;
@@ -138,9 +127,6 @@
   height: 40px;
   margin: auto;
   display: flex;
-  /* border: 1px solid black; */
-  /* border-radius: 5px; */
-  /* overflow: hidden; */
 }
 
 .product__options {
@@ -169,19 +155,16 @@
 }
 
 .count__button button {
-  /* font-weight: bold; */
   font-size: 1.4rem;
   border: none;
   background: none;
   height: 100%;
   padding: 5px;
-  /* width: 10px; */
 }
 
 .product__add {
   width: 60%;
   background: var(--red-main);
-  /* border-radius: none; */
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -193,7 +176,6 @@
   width: 100%;
   border: none;
   background: none;
-  /* border: 1px solid black; */
 }
 
 /* button component */
@@ -229,18 +211,16 @@
 /* bag component */
 .dropdown {
   position: absolute;
-  top: 120%;
-  /* right: 4%; */
-  width: 100%;
+  top: 25px;
+  right: 3%;
+  max-width: 570px;
   height: 500px;
-  box-shadow: 1px 1px 20px 5px var(--red-secondary);
+  box-shadow: 1px 1px 20px 20px var(--red-secondary);
   background: white;
   padding: 20px;
-  /* padding-top: 40px; */
   border-radius: 20px;
   overflow: hidden;
   display: flex;
-  /* position: relative; */
 }
 
 .dropdown__close {
@@ -248,21 +228,12 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  /* background: var(--red-main); */
-  /* color: white; */
   border-bottom: 2px solid var(--red-main);
   padding: 5px;
-  /* width: 50px; */
-  /* height: 50px; */
-  /* border-radius: 50%; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
   cursor: pointer;
 }
 
 .bag {
-  /* position: absolute; */
   margin-top: 20px;
   width: 100%;
 }
@@ -295,26 +266,22 @@
   justify-content: space-between;
   align-items: center;
   width: 70%;
-  /* padding: 0 10px; */
   border: 2px solid var(--red-main);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
 .item__count button {
-  /* font-weight: bold; */
   font-size: 1.2rem;
   border: none;
   background: none;
   height: 100%;
   width: 30px;
-  /* padding: 5px; */
 }
 
 .item__remove {
   width: 30%;
   background: var(--red-main);
-  /* border-radius: none; */
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -335,13 +302,8 @@
 }
 
 .bill {
-  /* height: 40px; */
-  /* width: 250px; */
   border-radius: 5px;
   background: var(--red-secondary);
-  /* display: flex; */
-  /* justify-content: right; */
-  /* align-items: center; */
   margin: 10px 0 10px auto;
   text-align: right;
   padding: 5px;
@@ -359,15 +321,10 @@
 
 /* form component */
 .form {
-  /* width: 100%; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
   margin-top: 40px;
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-auto-rows: 1fr; */
   gap: 10px;
   position: relative;
 }
@@ -375,7 +332,6 @@
 input {
   height: 35px;
   width: 100%;
-  /* margin: 10px auto; */
   margin-bottom: 10px;
   border: none;
   border-radius: 20px;
@@ -408,7 +364,6 @@ option {
 
 textarea {
   width: 100%;
-  /* margin: 10px auto; */
   margin-bottom: 5px;
   font-weight: bold;
   border: none;
@@ -427,9 +382,7 @@ textarea {
   top: -40px;
   left: 0px;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  /* border: 1px solid black; */
   cursor: pointer;
 }
 
@@ -452,7 +405,6 @@ textarea {
   margin-bottom: 10px;
   scrollbar-width: 5px;
   scrollbar-color: var(--red-main) var(--red-secondary);
-  /* padding: 0 10px; */
 }
 
 ::-webkit-scrollbar {
@@ -469,6 +421,7 @@ textarea {
   border-radius: 5px;
 }
 
+/* add ons */
 .add-on {
   padding: 20px;
   text-align: center;
@@ -477,10 +430,11 @@ textarea {
 .add-on__option {
   border: 3px solid var(--red-secondary);
   font-size: 0.9rem;
-  /* background: var(--red-secondary); */
   border-radius: 10px;
   padding: 10px;
   margin: 10px 0;
+  transition: all 1s ease-in;
+  cursor: pointer;
 }
 
 .add-on__option .details {
@@ -494,6 +448,21 @@ textarea {
   font-style: italic;
   text-align: left;
   font-size: 0.65rem;
+}
+
+.add-on__checkbox {
+  display: none;
+}
+
+.add-on__instruction {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.delivery__fee {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 5px;
 }
 
 /* animations */

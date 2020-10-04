@@ -4,24 +4,18 @@ import { useShoppingBagContext } from "./ShoppingBagContext";
 function ProductCard({ product }) {
   const shoppingBag = useShoppingBagContext();
   const [count, setCount] = useState(1);
-  const [options, setOptions] = useState({
-    flavor: "strawberry",
-    addons: [],
-  });
+  const [flavor, setFlavor] = useState("strawberry");
 
   const addItemToOrderList = (product) => {
-    // const itemToAdd = { ...product, count: count, subtotal: product.price };
     const itemToAdd = {
-      itemId: `${product.id}with${options.flavor}`,
+      itemId: `${product.id}_${flavor}`,
       itemName: product.name,
       itemCount: count,
       itemSubtotal: product.price * count,
-      itemSubtitle: `with ${options.flavor} binggrae`,
+      itemSubtitle: `with ${flavor} binggrae`,
       itemPrice: product.price,
     };
-    // console.log(itemToAdd);
     shoppingBag.add(itemToAdd);
-    // console.log("item added to storage");
     console.warn("store items in session storage in case user refeshes");
   };
 
@@ -32,6 +26,10 @@ function ProductCard({ product }) {
   const decrementCount = () => {
     if (count === 1) return;
     setCount(count - 1);
+  };
+
+  const handleFlavorChange = (e) => {
+    setFlavor(e.target.value);
   };
 
   return (
@@ -54,7 +52,11 @@ function ProductCard({ product }) {
         <div className="product__options">
           <p className="option__title">Binggrae flavor</p>
           <section>
-            <select name="binggrae-flavor" id="binggrae">
+            <select
+              name="binggrae-flavor"
+              id="binggrae"
+              onChange={(e) => handleFlavorChange(e)}
+            >
               <option value="strawberry">Strawberry</option>
               <option value="melon">Melon</option>
               <option value="banana">Banana</option>

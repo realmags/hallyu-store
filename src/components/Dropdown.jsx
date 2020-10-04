@@ -13,11 +13,7 @@ function Dropdown(props) {
   }
 
   return (
-    <div
-      className="dropdown"
-      // onClick={() => console.log("dropdown is clicked/focus")}
-      // onBlur={() => props.setBagIsShown(!props.BagIsShown)}
-    >
+    <div className="dropdown">
       {props.children}
       <CloseButton />
     </div>
