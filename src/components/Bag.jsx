@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+import React from "react";
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
 import { CSSTransition } from "react-transition-group";
 import Button from "./Button";
 import { useRef } from "react";
@@ -7,6 +11,7 @@ import { useShoppingBagContext } from "./ShoppingBagContext";
 function Bag({ activeMenu, setActiveMenu }) {
   const shoppingBag = useShoppingBagContext();
   const bagRef = useRef(null);
+<<<<<<< HEAD
 
   function Item({ item = {}, isAddon = false }) {
     const changeItemCount = (itemToChange, isAddonFlag, functionToCall) => {
@@ -18,6 +23,24 @@ function Bag({ activeMenu, setActiveMenu }) {
       functionToCall(itemToChange);
     };
 
+=======
+  // how to get all items from session storage
+  // const bagItem
+
+  // alert(orderItems);
+  // useEffect(() => {
+  //   setOrderItems(shoppingBag.items);
+  //   console.log("this is useeffect");
+  // }, []);
+
+  // const updateOrderItems = (item) => {
+  //   shoppingBag.increment(item);
+  //   setOrderItems(shoppingBag.items);
+  //   console.log("this is update order items");
+  // };
+
+  function Item({ item = {} }) {
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
     return (
       <div className="item">
         <div className="item__details">
@@ -29,7 +52,11 @@ function Bag({ activeMenu, setActiveMenu }) {
             <button
               type="button"
               onClick={() =>
+<<<<<<< HEAD
                 changeItemCount(item, isAddon, shoppingBag.increment)
+=======
+                Object.keys(item).length > 0 && shoppingBag.increment(item)
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
               }
             >
               +
@@ -38,7 +65,11 @@ function Bag({ activeMenu, setActiveMenu }) {
             <button
               type="button"
               onClick={() =>
+<<<<<<< HEAD
                 changeItemCount(item, isAddon, shoppingBag.decrement)
+=======
+                Object.keys(item).length > 0 && shoppingBag.decrement(item)
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
               }
             >
               -
@@ -48,12 +79,18 @@ function Bag({ activeMenu, setActiveMenu }) {
             <button
               className="product__add"
               type="button"
+<<<<<<< HEAD
               onClick={() => {
                 if (!Object.keys(item).length > 0) return;
                 isAddon
                   ? shoppingBag.removeAddon(item)
                   : shoppingBag.remove(item);
               }}
+=======
+              onClick={() =>
+                Object.keys(item).length > 0 && shoppingBag.remove(item)
+              }
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
             >
               X
             </button>
@@ -68,6 +105,7 @@ function Bag({ activeMenu, setActiveMenu }) {
 
   function Bill() {
     // const shoppingBagItems
+<<<<<<< HEAD
     const itemPromoId = "kimchi";
     const [deliveryFee, setDeliveryFee] = useState(() => {
       if (
@@ -101,6 +139,16 @@ function Bag({ activeMenu, setActiveMenu }) {
             ? shoppingBag.items.addons
                 .map((item) => item.itemSubtotal)
                 .reduce((sum, current) => sum + current) + deliveryFee
+=======
+    return (
+      <div className="bill">
+        <h1>
+          Amount to pay: P
+          {shoppingBag.items.length > 0
+            ? shoppingBag.items
+                .map((item) => item.itemSubtotal)
+                .reduce((sum, current) => sum + current)
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
             : 0}
         </h1>
       </div>
@@ -116,6 +164,7 @@ function Bag({ activeMenu, setActiveMenu }) {
       nodeRef={bagRef}
     >
       <div className="bag" ref={bagRef}>
+<<<<<<< HEAD
         {shoppingBag.items.orders.length === 0 &&
         shoppingBag.items.addons.length === 0 ? (
           <Item />
@@ -129,6 +178,15 @@ function Bag({ activeMenu, setActiveMenu }) {
           shoppingBag.items.addons.map((item) => (
             <Item item={item} key={`addon-${item.id}`} isAddon={true} />
           ))}
+=======
+        {shoppingBag.items.length === 0 ? (
+          <Item />
+        ) : (
+          shoppingBag.items.map((item) => (
+            <Item item={item} key={`bag-${item.id}`} />
+          ))
+        )}
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
         <Bill />
         <div className="bag__button">
           <Button

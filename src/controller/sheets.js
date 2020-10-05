@@ -22,9 +22,13 @@ const appendRow = async (orderDetails) => {
         });
 
         console.log('this is result', result);
+<<<<<<< HEAD
         return result;
     } catch (e) {
         alert('Oh noes! Something went wrong.');
+=======
+    } catch (e) {
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
         console.error('Error: ', e);
     }
 };

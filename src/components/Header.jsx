@@ -9,6 +9,7 @@ import { useShoppingBagContext } from "./ShoppingBagContext";
 // import { useRef } from "react";
 
 function Header() {
+<<<<<<< HEAD
   const shoppingBag = useShoppingBagContext();
   const [notifIsShown, setNotifIsShown] = useState(false);
   const [bagIsShown, setBagIsShown] = useState(false);
@@ -21,6 +22,19 @@ function Header() {
         : false
     );
   }, [shoppingBag.items]);
+=======
+  // include state in redux
+  const bagItems = useShoppingBagContext().items;
+  const [notifIsShown, setNotifIsShown] = useState(false);
+  const [bagIsShown, setBagIsShown] = useState(false);
+  const [activeMenu, setActiveMenu] = useState("form");
+
+  // console.log("header bagItems", bagItems);
+
+  useEffect(() => {
+    setNotifIsShown(bagItems.length > 0 ? true : false);
+  }, [bagItems]);
+>>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
 
   return (
     <div className="header">
