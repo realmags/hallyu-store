@@ -8,26 +8,32 @@ import { appendRow } from "../controller/sheets";
 function Form({ activeMenu, setActiveMenu }) {
   const formRef = useRef(null);
   const orderItems = useShoppingBagContext().items.orders;
+  const addonItems = useShoppingBagContext().items.addons;
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
-    const orderSummary = orderItems.reduce(
-      (summary, currentItem) => {
-        summary.pendingOrders = [
-          ...summary.pendingOrders,
-          `${currentItem.count}pcs ${currentItem.id}`,
-        ];
-        summary.amountToPay += currentItem.subtotal;
-        return summary;
-      },
-      { pendingOrders: [], amountToPay: 0 }
-    );
+    const reduceItems = (arr) => {
+      return arr.reduce(
+        (summary, currentItem) => {
+          summary.pendingOrders = [
+            ...summary.pendingOrders,
+            `${currentItem.itemCount}pcs ${currentItem.itemId}`,
+          ];
+          summary.amountToPay += currentItem.itemSubtotal;
+          return summary;
+        },
+        { pendingOrders: [], amountToPay: 0 }
+      );
+    };
+    const orderSummary = reduceItems(orderItems);
+    const addonSummary = reduceItems(addonItems);
     setFormData((prev) => {
       prev.pendingOrders = orderSummary.pendingOrders;
-      prev.amountToPay = orderSummary.amountToPay;
+      prev.pendingAddons = addonSummary.pendingOrders;
+      prev.amountToPay = orderSummary.amountToPay + addonSummary.amountToPay;
       return prev;
     });
-  }, [orderItems]);
+  }, [orderItems, addonItems]);
 
   const handleChange = (e) => {
     const inputField = e.target.id,
@@ -42,12 +48,14 @@ function Form({ activeMenu, setActiveMenu }) {
     e.preventDefault();
     e.persist();
     // TODO make input fields required
-    console.log("adding form data", formData);
+    // console.log("adding form data", formData);
     appendRow(formData).then((result) => {
-      if (result)
+      if (result) {
         alert(
           "Thank you for choosing Hallyu store.\nWe will notify you thru SMS regarding the status of your order."
         );
+        window.location.href = "/";
+      }
     });
   };
 
@@ -67,6 +75,7 @@ function Form({ activeMenu, setActiveMenu }) {
             id="name"
             placeholder="name"
             onInput={handleChange}
+            required
           />
           <input
             type="tel"
@@ -74,6 +83,7 @@ function Form({ activeMenu, setActiveMenu }) {
             id="contact"
             placeholder="contact number"
             onInput={handleChange}
+            required
           />
           <input
             type="email"
@@ -88,12 +98,17 @@ function Form({ activeMenu, setActiveMenu }) {
             id="address"
             placeholder="address"
             onInput={handleChange}
+            required
           />
-          <select name="delivery" id="delivery" onInput={handleChange}>
+          <select name="delivery" id="delivery" onInput={handleChange} required>
             <option value="">delivery option</option>
             <option value="meet-up">meet up</option>
             <option value="meet-up">delivery</option>
           </select>
+          <p className="delivery__note">
+            For delivery services, we use Grab. This may incur additional
+            charges.
+          </p>
           <div className="form__button">
             <button className="form__submit">Confirm Order</button>
           </div>

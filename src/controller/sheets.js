@@ -17,18 +17,15 @@ const appendRow = async (orderDetails) => {
             'address': orderDetails.address,
             'delivery-option': orderDetails.delivery,
             'order-items': JSON.stringify(orderDetails.pendingOrders),
+            'addons-items': JSON.stringify(orderDetails.pendingAddons),
             'amount-receivable': orderDetails.amountToPay,
             'transaction-status': 'pending'
         });
 
-        console.log('this is result', result);
-<<<<<<< HEAD
+        // console.log('this is result', result);
         return result;
     } catch (e) {
         alert('Oh noes! Something went wrong.');
-=======
-    } catch (e) {
->>>>>>> 74d70acfb3f08a5896e339750db2f3368a8fb19a
         console.error('Error: ', e);
     }
 };
