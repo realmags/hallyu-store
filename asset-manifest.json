@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/hallyu-store/static/css/main.4980d99b.chunk.css",
+    "main.js": "/hallyu-store/static/js/main.6454b8f3.chunk.js",
+    "main.js.map": "/hallyu-store/static/js/main.6454b8f3.chunk.js.map",
+    "runtime-main.js": "/hallyu-store/static/js/runtime-main.4af5d99d.js",
+    "runtime-main.js.map": "/hallyu-store/static/js/runtime-main.4af5d99d.js.map",
+    "static/js/2.04da7f28.chunk.js": "/hallyu-store/static/js/2.04da7f28.chunk.js",
+    "static/js/2.04da7f28.chunk.js.map": "/hallyu-store/static/js/2.04da7f28.chunk.js.map",
+    "index.html": "/hallyu-store/index.html",
+    "precache-manifest.719fd5fd9e3ee724e707bdc463eea657.js": "/hallyu-store/precache-manifest.719fd5fd9e3ee724e707bdc463eea657.js",
+    "service-worker.js": "/hallyu-store/service-worker.js",
+    "static/css/main.4980d99b.chunk.css.map": "/hallyu-store/static/css/main.4980d99b.chunk.css.map",
+    "static/js/2.04da7f28.chunk.js.LICENSE.txt": "/hallyu-store/static/js/2.04da7f28.chunk.js.LICENSE.txt",
+    "static/media/asterisk.svg": "/hallyu-store/static/media/asterisk.c1d3cdf9.svg",
+    "static/media/caret-left.svg": "/hallyu-store/static/media/caret-left.fd9384c1.svg",
+    "static/media/hallyu-logo.png": "/hallyu-store/static/media/hallyu-logo.d7a5bb6e.png",
+    "static/media/product-photo.png": "/hallyu-store/static/media/product-photo.27ffe872.png",
+    "static/media/shopping-bag.svg": "/hallyu-store/static/media/shopping-bag.7118849a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4af5d99d.js",
+    "static/js/2.04da7f28.chunk.js",
+    "static/css/main.4980d99b.chunk.css",
+    "static/js/main.6454b8f3.chunk.js"
+  ]
+}
