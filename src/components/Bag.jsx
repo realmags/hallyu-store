@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { CSSTransition } from "react-transition-group";
 import Button from "./Button";
 import { useRef } from "react";
@@ -68,15 +68,15 @@ function Bag({ activeMenu, setActiveMenu }) {
 
   function Bill() {
     // const shoppingBagItems
-    const itemPromoId = "kimchi";
-    const [deliveryFee, setDeliveryFee] = useState(() => {
-      if (
-        shoppingBag.items.addons.some((addon) => addon.itemId === itemPromoId)
-      ) {
-        return 0;
-      }
-      return 25;
-    });
+    // const itemPromoId = "kimchi";
+    // const [deliveryFee, setDeliveryFee] = useState(() => {
+    //   if (
+    //     shoppingBag.items.addons.some((addon) => addon.itemId === itemPromoId)
+    //   ) {
+    //     return 0;
+    //   }
+    //   return 25;
+    // });
     return (
       <div className="bill">
         {/* {shoppingBag.items.orders.length > 0 ||
@@ -94,8 +94,7 @@ function Bag({ activeMenu, setActiveMenu }) {
                   .reduce((sum, current) => sum + current) +
                 shoppingBag.items.addons
                   .map((item) => item.itemSubtotal)
-                  .reduce((sum, current) => sum + current) +
-                deliveryFee
+                  .reduce((sum, current) => sum + current)
               : shoppingBag.items.orders
                   .map((item) => item.itemSubtotal)
                   .reduce((sum, current) => sum + current)

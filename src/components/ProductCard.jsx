@@ -12,7 +12,7 @@ function ProductCard({ product }) {
       itemName: product.name,
       itemCount: count,
       itemSubtotal: product.price * count,
-      itemSubtitle: `with ${flavor} binggrae`,
+      itemSubtitle: `& ${flavor} binggrae`,
       itemPrice: product.price,
     };
     shoppingBag.add(itemToAdd);

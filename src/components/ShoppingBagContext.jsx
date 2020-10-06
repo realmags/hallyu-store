@@ -15,6 +15,10 @@ function ShoppingBagProvider(props) {
       addons: [],
     }
   );
+  const [popup, setPopup] = useState({
+    message: "This is a test message",
+    isShown: false,
+  });
 
   const updateItems = (
     itemToFilter,
@@ -32,6 +36,17 @@ function ShoppingBagProvider(props) {
     return shoppingBagItems;
   };
 
+  const updatePopupMessage = (msg) => {
+    setPopup((prev) => ({ ...prev, message: msg }));
+  };
+
+  const updatePopupIsShown = (bool = false) => {
+    setPopup((prev) => ({ ...prev, isShown: bool }));
+    setTimeout(() => {
+      setPopup((prev) => ({ ...prev, isShown: !bool }));
+    }, 3000);
+  };
+
   const addOrderToBag = (itemToAdd) => {
     //   check if item is already on the bog
     const isItemAdded = shoppingBagItems.orders.some(
@@ -39,12 +54,16 @@ function ShoppingBagProvider(props) {
     );
 
     if (isItemAdded) {
-      alert(
-        "Item has been added to cart.\nOpen your shopping bag to view and edit items."
-      );
+      // alert(
+      //   "Item has been added to cart.\nOpen your shopping bag to view and edit items."
+      // );
+      updatePopupMessage("Open your shopping bag to view and edit items.");
+      updatePopupIsShown(true);
+      // setPopup((prev) => ({ ...prev, isShown: true }));
       return;
     }
-
+    updatePopupMessage("Item has been added to cart.");
+    updatePopupIsShown(true);
     updateShoppingBagItems((prev) => ({
       ...prev,
       orders: [...prev.orders, itemToAdd],
@@ -117,6 +136,9 @@ function ShoppingBagProvider(props) {
     remove: removeItem,
     removeAddon,
     addAddon: addAddonToBag,
+    updatePopupMessage,
+    updatePopupIsShown,
+    popup,
   };
 
   return (

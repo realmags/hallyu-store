@@ -40,6 +40,9 @@ function Addons() {
           }
           onClick={(e) => handleClick(e, option)}
         >
+          <span className="option__img">
+            <img src={option.itemImg} alt={option.itemName} />
+          </span>
           <div className="details">
             <div>
               <h4>{option.itemName}</h4>
@@ -56,18 +59,42 @@ function Addons() {
     );
   }
 
-  return (
-    <div className="card add-on">
-      <h4>add-ons</h4>
-      <p className="add-on__instruction">
-        select add-ons by clicking each card
-      </p>
-      <div>
-        {addons.map((addon) => (
-          <Option option={addon} key={addon.itemId} />
-        ))}
+  function AddonCard(props) {
+    return (
+      <div className="card add-on">
+        <h4>add-ons</h4>
+        <p className="add-on__instruction">
+          select add-ons by clicking each card
+        </p>
+        <div>{props.children}</div>
       </div>
-    </div>
+    );
+  }
+
+  return (
+    // <div className="card add-on">
+    //   <h4>add-ons</h4>
+    //   <p className="add-on__instruction">
+    //     select add-ons by clicking each card
+    //   </p>
+    //   <div>
+    //     {addons.map((addon) => (
+    //       <Option option={addon} key={addon.itemId} />
+    //     ))}
+    //   </div>
+    // </div>
+    <>
+      <AddonCard>
+        <Option option={addons[0]} key={addons[0].itemId} />
+        <Option option={addons[1]} key={addons[1].itemId} />
+        <Option option={addons[2]} key={addons[2].itemId} />
+      </AddonCard>
+      <AddonCard>
+        <Option option={addons[3]} key={addons[3].itemId} />
+        <Option option={addons[4]} key={addons[4].itemId} />
+        <Option option={addons[5]} key={addons[5].itemId} />
+      </AddonCard>
+    </>
   );
 }
 

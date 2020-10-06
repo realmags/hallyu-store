@@ -9,6 +9,7 @@ function Form({ activeMenu, setActiveMenu }) {
   const formRef = useRef(null);
   const orderItems = useShoppingBagContext().items.orders;
   const addonItems = useShoppingBagContext().items.addons;
+  const { updatePopupMessage, updatePopupIsShown } = useShoppingBagContext();
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
@@ -49,14 +50,27 @@ function Form({ activeMenu, setActiveMenu }) {
     e.persist();
     // TODO make input fields required
     // console.log("adding form data", formData);
-    appendRow(formData).then((result) => {
-      if (result) {
-        alert(
-          "Thank you for choosing Hallyu store.\nWe will notify you thru SMS regarding the status of your order."
+    updatePopupMessage("Please wait while your order is being processed...");
+    updatePopupIsShown(true);
+    appendRow(formData)
+      .then((result) => {
+        if (result) {
+          // alert(
+          //   "Thank you for choosing Hallyu store.\nWe will notify you thru SMS regarding the status of your order."
+          // );
+          updatePopupMessage(
+            "Your order has been recorded. Hallyu CDO will notify you thru SMS regarding the status of your order."
+          );
+          updatePopupIsShown(true);
+          window.location.href = "/hallyu-store";
+        }
+      })
+      .catch((err) => {
+        updatePopupMessage(
+          "Oh no! Your order cannot be processed. Please try again later."
         );
-        window.location.href = "/";
-      }
-    });
+        console.log(err);
+      });
   };
 
   return (

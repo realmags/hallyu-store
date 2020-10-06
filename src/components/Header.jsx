@@ -7,7 +7,6 @@ import Form from "./Form";
 import { useEffect } from "react";
 import { useShoppingBagContext } from "./ShoppingBagContext";
 import hallyuLogo from "../images/hallyu-logo.png";
-// import { useRef } from "react";
 
 function Header() {
   const shoppingBag = useShoppingBagContext();
