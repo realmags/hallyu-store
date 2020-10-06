@@ -1,27 +1,33 @@
 {
   "files": {
-    "main.css": "/hallyu-store/static/css/main.4980d99b.chunk.css",
-    "main.js": "/hallyu-store/static/js/main.6454b8f3.chunk.js",
-    "main.js.map": "/hallyu-store/static/js/main.6454b8f3.chunk.js.map",
+    "main.css": "/hallyu-store/static/css/main.a91c1024.chunk.css",
+    "main.js": "/hallyu-store/static/js/main.21af95fc.chunk.js",
+    "main.js.map": "/hallyu-store/static/js/main.21af95fc.chunk.js.map",
     "runtime-main.js": "/hallyu-store/static/js/runtime-main.4af5d99d.js",
     "runtime-main.js.map": "/hallyu-store/static/js/runtime-main.4af5d99d.js.map",
-    "static/js/2.04da7f28.chunk.js": "/hallyu-store/static/js/2.04da7f28.chunk.js",
-    "static/js/2.04da7f28.chunk.js.map": "/hallyu-store/static/js/2.04da7f28.chunk.js.map",
+    "static/js/2.d0a5c39b.chunk.js": "/hallyu-store/static/js/2.d0a5c39b.chunk.js",
+    "static/js/2.d0a5c39b.chunk.js.map": "/hallyu-store/static/js/2.d0a5c39b.chunk.js.map",
     "index.html": "/hallyu-store/index.html",
-    "precache-manifest.719fd5fd9e3ee724e707bdc463eea657.js": "/hallyu-store/precache-manifest.719fd5fd9e3ee724e707bdc463eea657.js",
+    "precache-manifest.25f867d087e19a9f8d53cde980579084.js": "/hallyu-store/precache-manifest.25f867d087e19a9f8d53cde980579084.js",
     "service-worker.js": "/hallyu-store/service-worker.js",
-    "static/css/main.4980d99b.chunk.css.map": "/hallyu-store/static/css/main.4980d99b.chunk.css.map",
-    "static/js/2.04da7f28.chunk.js.LICENSE.txt": "/hallyu-store/static/js/2.04da7f28.chunk.js.LICENSE.txt",
+    "static/css/main.a91c1024.chunk.css.map": "/hallyu-store/static/css/main.a91c1024.chunk.css.map",
+    "static/js/2.d0a5c39b.chunk.js.LICENSE.txt": "/hallyu-store/static/js/2.d0a5c39b.chunk.js.LICENSE.txt",
     "static/media/asterisk.svg": "/hallyu-store/static/media/asterisk.c1d3cdf9.svg",
+    "static/media/binggrae-banana.jpg": "/hallyu-store/static/media/binggrae-banana.d0226058.jpg",
+    "static/media/binggrae-melon.jpg": "/hallyu-store/static/media/binggrae-melon.1a03f94a.jpg",
+    "static/media/binggrae-strawberry.jpg": "/hallyu-store/static/media/binggrae-strawberry.2dac0478.jpg",
     "static/media/caret-left.svg": "/hallyu-store/static/media/caret-left.fd9384c1.svg",
+    "static/media/fish-cake.jpg": "/hallyu-store/static/media/fish-cake.abc16131.jpg",
     "static/media/hallyu-logo.png": "/hallyu-store/static/media/hallyu-logo.d7a5bb6e.png",
-    "static/media/product-photo.png": "/hallyu-store/static/media/product-photo.27ffe872.png",
+    "static/media/jin-ramyun.jpg": "/hallyu-store/static/media/jin-ramyun.fc3685cd.jpg",
+    "static/media/kimchi.jpg": "/hallyu-store/static/media/kimchi.5fcf0029.jpg",
+    "static/media/shin-ramyun.jpg": "/hallyu-store/static/media/shin-ramyun.b816f7e8.jpg",
     "static/media/shopping-bag.svg": "/hallyu-store/static/media/shopping-bag.7118849a.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.4af5d99d.js",
-    "static/js/2.04da7f28.chunk.js",
-    "static/css/main.4980d99b.chunk.css",
-    "static/js/main.6454b8f3.chunk.js"
+    "static/js/2.d0a5c39b.chunk.js",
+    "static/css/main.a91c1024.chunk.css",
+    "static/js/main.21af95fc.chunk.js"
   ]
 }
