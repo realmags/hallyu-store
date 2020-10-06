@@ -9,6 +9,7 @@ function Form({ activeMenu, setActiveMenu }) {
   const formRef = useRef(null);
   const orderItems = useShoppingBagContext().items.orders;
   const addonItems = useShoppingBagContext().items.addons;
+  const shoppingBag = useShoppingBagContext();
   const { updatePopupMessage, updatePopupIsShown } = useShoppingBagContext();
   const [formData, setFormData] = useState({});
 
@@ -28,13 +29,15 @@ function Form({ activeMenu, setActiveMenu }) {
     };
     const orderSummary = reduceItems(orderItems);
     const addonSummary = reduceItems(addonItems);
+    // console.log("orders", orderSummary);
+    // console.log("addons", addonSummary);
     setFormData((prev) => {
       prev.pendingOrders = orderSummary.pendingOrders;
       prev.pendingAddons = addonSummary.pendingOrders;
       prev.amountToPay = orderSummary.amountToPay + addonSummary.amountToPay;
       return prev;
     });
-  }, [orderItems, addonItems]);
+  }, [shoppingBag.items]);
 
   const handleChange = (e) => {
     const inputField = e.target.id,
@@ -62,7 +65,9 @@ function Form({ activeMenu, setActiveMenu }) {
             "Your order has been recorded. Hallyu CDO will notify you thru SMS regarding the status of your order."
           );
           updatePopupIsShown(true);
-          window.location.href = "/hallyu-store";
+          setTimeout(() => {
+            window.location.href = "/hallyu-store";
+          }, 3000);
         }
       })
       .catch((err) => {
