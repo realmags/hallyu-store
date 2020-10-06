@@ -41,10 +41,14 @@ function ShoppingBagProvider(props) {
   };
 
   const updatePopupIsShown = (bool = false) => {
+    let timeout;
     setPopup((prev) => ({ ...prev, isShown: bool }));
-    setTimeout(() => {
-      setPopup((prev) => ({ ...prev, isShown: !bool }));
-    }, 3000);
+    (function () {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setPopup((prev) => ({ ...prev, isShown: !bool }));
+      }, 2500);
+    })();
   };
 
   const addOrderToBag = (itemToAdd) => {

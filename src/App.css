@@ -1,6 +1,6 @@
 :root {
   --red-main: #ef233c;
-  --red-secondary: #ef233b15;
+  --red-secondary: #ef233b1c;
   --yellow: #ffba08;
   --radius: 20px;
   --font-big: 1.4rem;
@@ -19,7 +19,7 @@
 /* content */
 .content {
   background: white;
-  min-width: 400px;
+  /* min-width: 400px; */
   max-width: 90vw;
   margin: 0 auto;
   border-radius: var(--radius);
@@ -233,9 +233,9 @@
   top: 25px;
   right: 3%;
   max-width: 570px;
-  min-width: 570px;
+  /* min-width: 570px; */
   height: 500px;
-  box-shadow: 1px 1px 20px 20px var(--red-secondary);
+  box-shadow: 1px 1px 10px 10px var(--red-secondary);
   background: white;
   padding: 20px;
   border-radius: 20px;
@@ -252,17 +252,27 @@
   padding: 5px;
   cursor: pointer;
   background: white;
+  text-align: center;
+  height: 35px;
+  width: 100%;
 }
 
 .bag {
   margin-top: 20px;
   width: 100%;
   overflow-y: auto;
+  padding-right: 5px;
+  padding-bottom: 20px;
+}
+
+.bag::-webkit-scrollbar {
+  width: 3px;
 }
 
 .item {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: minmax(95px, 1fr) 1fr 1fr;
   align-items: center;
   grid-auto-rows: minmax(75px, auto);
   gap: 20px;
@@ -425,8 +435,9 @@ textarea {
   width: 90%;
   margin: auto;
   margin-bottom: 10px;
-  scrollbar-width: 5px;
-  scrollbar-color: var(--red-main) var(--red-secondary);
+  padding-left: 10px;
+  /* scrollbar-width: 5px; */
+  /* scrollbar-color: var(--red-main) var(--red-secondary); */
 }
 
 ::-webkit-scrollbar {
@@ -584,8 +595,9 @@ textarea {
   top: -100%;
 }
 
-/* @media only screen and (min-width: 1220px) {
-  .product_slider {
-    justify-content: center;
+@media only screen and (max-width: 320px) {
+  .dropdown {
+    top: 40px;
+    right: -18%;
   }
-} */
+}
