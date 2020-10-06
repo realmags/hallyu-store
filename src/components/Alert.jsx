@@ -9,7 +9,7 @@ function Alert() {
   return (
     <CSSTransition
       in={popup.isShown}
-      timeout={3000}
+      timeout={4000}
       classNames="alert-anim"
       unmountOnExit
       nodeRef={alertRef}

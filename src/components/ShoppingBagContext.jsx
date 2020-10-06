@@ -47,7 +47,7 @@ function ShoppingBagProvider(props) {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         setPopup((prev) => ({ ...prev, isShown: !bool }));
-      }, 2500);
+      }, 3500);
     })();
   };
 

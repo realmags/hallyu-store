@@ -1,6 +1,9 @@
 import React from "react";
+import { useShoppingBagContext } from "./ShoppingBagContext";
 
 function Dropdown(props) {
+  const { popup } = useShoppingBagContext();
+
   function CloseButton() {
     return (
       <span
@@ -13,7 +16,7 @@ function Dropdown(props) {
   }
 
   return (
-    <div className="dropdown">
+    <div className={popup.isShown ? "dropdown blur-active" : "dropdown"}>
       {props.children}
       <CloseButton />
     </div>

@@ -61,13 +61,13 @@ function Form({ activeMenu, setActiveMenu }) {
           // alert(
           //   "Thank you for choosing Hallyu store.\nWe will notify you thru SMS regarding the status of your order."
           // );
-          updatePopupMessage(
-            "Your order has been recorded. Hallyu CDO will notify you thru SMS regarding the status of your order."
-          );
-          updatePopupIsShown(true);
+          setTimeout(() => {
+            updatePopupMessage("Sucess! Hallyu CDO will notify you thru SMS.");
+            updatePopupIsShown(true);
+          }, 3000);
           setTimeout(() => {
             window.location.href = "/hallyu-store";
-          }, 3000);
+          }, 6000);
         }
       })
       .catch((err) => {

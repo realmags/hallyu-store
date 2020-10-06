@@ -5,6 +5,7 @@
   --radius: 20px;
   --font-big: 1.4rem;
   --yellow-main: #ffc530;
+  --alert-position: 50%;
   /* --yellow-main: #f6bf32; */
 }
 
@@ -233,7 +234,7 @@
   top: 25px;
   right: 3%;
   max-width: 570px;
-  /* min-width: 570px; */
+  min-width: 300px;
   height: 500px;
   box-shadow: 1px 1px 10px 10px var(--red-secondary);
   background: white;
@@ -241,6 +242,7 @@
   border-radius: 20px;
   overflow: hidden;
   display: flex;
+  z-index: 10;
 }
 
 .dropdown__close {
@@ -523,15 +525,23 @@ textarea {
   padding-left: 20px;
 }
 
+.blur-active {
+  filter: blur(1px);
+  pointer-events: none;
+  user-select: none;
+}
+
 .alert {
   position: absolute;
-  /* top: -100%;
-  left: 50%; */
-  transform: translateX(-50%);
+  /* top: 50%; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   background: white;
-  width: 350px;
+  /* width: 350px; */
+  min-width: 280px;
   border: 3px solid var(--red-main);
-  height: 50px;
+  /* height: 50px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -539,6 +549,8 @@ textarea {
   /* transition: all ease 1s; */
   padding: 30px 20px;
   box-shadow: 1px 1px 20px 10px var(--red-secondary);
+  z-index: 100;
+  filter: blur(none);
 }
 
 /* animations */
@@ -574,30 +586,59 @@ textarea {
 
 .alert-anim-enter {
   /* transform: translateY(-100%); */
-  top: -100%;
+  top: 0%;
   left: 50%;
+  transform: translateX(-50%);
 }
 
 .alert-anim-enter-active {
   /* transform: translateY(-100%); */
-  top: 0%;
+  top: var(--alert-position);
   transition: all 500ms ease;
 }
 
 .alert-anim-exit {
-  top: 0%;
+  top: var(--alert-position);
   left: 50%;
-  transition: all 500ms ease;
+  transform: translateX(-50%);
 }
 
 .alert-anim-exit-active {
   /* transform: translateY(-100%); */
-  top: -100%;
+  top: -30%;
+  transition: all 500ms ease;
 }
 
 @media only screen and (max-width: 320px) {
   .dropdown {
     top: 40px;
-    right: -18%;
+    right: -16%;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  .alert-anim-enter {
+    /* transform: translateY(-100%); */
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .alert-anim-enter-active {
+    /* transform: translateY(-100%); */
+    top: 80%;
+    transition: all 500ms ease;
+  }
+
+  .alert-anim-exit {
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .alert-anim-exit-active {
+    /* transform: translateY(-100%); */
+    top: -30%;
+    transition: all 500ms ease;
   }
 }
