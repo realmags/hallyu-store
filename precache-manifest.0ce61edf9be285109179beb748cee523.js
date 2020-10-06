@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd98789c099e267845e97d1ca178c543",
+    "revision": "f2fb2c465d4d926cacb36d9ad9d648af",
     "url": "/hallyu-store/index.html"
   },
   {
-    "revision": "96d92357e26e61606d4a",
-    "url": "/hallyu-store/static/css/main.a91c1024.chunk.css"
+    "revision": "4c3a2441cbc8af05e0b6",
+    "url": "/hallyu-store/static/css/main.dbd56081.chunk.css"
   },
   {
     "revision": "5fec07ef0056aac7a94d",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hallyu-store/static/js/2.d0a5c39b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "96d92357e26e61606d4a",
-    "url": "/hallyu-store/static/js/main.21af95fc.chunk.js"
+    "revision": "4c3a2441cbc8af05e0b6",
+    "url": "/hallyu-store/static/js/main.7d2cc5e4.chunk.js"
   },
   {
     "revision": "f55eacb27b8755d264c7",

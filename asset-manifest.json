@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/hallyu-store/static/css/main.a91c1024.chunk.css",
-    "main.js": "/hallyu-store/static/js/main.21af95fc.chunk.js",
-    "main.js.map": "/hallyu-store/static/js/main.21af95fc.chunk.js.map",
+    "main.css": "/hallyu-store/static/css/main.dbd56081.chunk.css",
+    "main.js": "/hallyu-store/static/js/main.7d2cc5e4.chunk.js",
+    "main.js.map": "/hallyu-store/static/js/main.7d2cc5e4.chunk.js.map",
     "runtime-main.js": "/hallyu-store/static/js/runtime-main.4af5d99d.js",
     "runtime-main.js.map": "/hallyu-store/static/js/runtime-main.4af5d99d.js.map",
     "static/js/2.d0a5c39b.chunk.js": "/hallyu-store/static/js/2.d0a5c39b.chunk.js",
     "static/js/2.d0a5c39b.chunk.js.map": "/hallyu-store/static/js/2.d0a5c39b.chunk.js.map",
     "index.html": "/hallyu-store/index.html",
-    "precache-manifest.25f867d087e19a9f8d53cde980579084.js": "/hallyu-store/precache-manifest.25f867d087e19a9f8d53cde980579084.js",
+    "precache-manifest.0ce61edf9be285109179beb748cee523.js": "/hallyu-store/precache-manifest.0ce61edf9be285109179beb748cee523.js",
     "service-worker.js": "/hallyu-store/service-worker.js",
-    "static/css/main.a91c1024.chunk.css.map": "/hallyu-store/static/css/main.a91c1024.chunk.css.map",
+    "static/css/main.dbd56081.chunk.css.map": "/hallyu-store/static/css/main.dbd56081.chunk.css.map",
     "static/js/2.d0a5c39b.chunk.js.LICENSE.txt": "/hallyu-store/static/js/2.d0a5c39b.chunk.js.LICENSE.txt",
     "static/media/asterisk.svg": "/hallyu-store/static/media/asterisk.c1d3cdf9.svg",
     "static/media/binggrae-banana.jpg": "/hallyu-store/static/media/binggrae-banana.d0226058.jpg",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.4af5d99d.js",
     "static/js/2.d0a5c39b.chunk.js",
-    "static/css/main.a91c1024.chunk.css",
-    "static/js/main.21af95fc.chunk.js"
+    "static/css/main.dbd56081.chunk.css",
+    "static/js/main.7d2cc5e4.chunk.js"
   ]
 }

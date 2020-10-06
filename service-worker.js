@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/hallyu-store/precache-manifest.25f867d087e19a9f8d53cde980579084.js"
+  "/hallyu-store/precache-manifest.0ce61edf9be285109179beb748cee523.js"
 );
 
 self.addEventListener('message', (event) => {
